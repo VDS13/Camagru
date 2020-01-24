@@ -1,0 +1,14 @@
+.header {
+    display: grid;
+    grid-template-columns: 20vw 60vw 20vw;
+    grid-template-rows: 10vh;
+}
+.n42 {
+    background-color: aquamarine;
+}
+.cama {
+    background-color: blueviolet;
+}
+.login {
+    background-color: blue;
+}
