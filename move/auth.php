@@ -1,21 +1,14 @@
 <?php
 function auth($login, $passwd)
 {
-	if (!file_exists("private"))
-	{
-		return FALSE;
-	}
-	if (!file_exists("private/passwd"))
-	{
-		return FALSE;
-	}
-	$data = unserialize(file_get_contents("private/passwd"));
-	if ($data)
-	{
-		foreach ($data as $key => $val) {
-			if ($val["login"] === $login && $val["passwd"] === hash("whirlpool" , $passwd)) {
-				return TRUE;
-			}
+	include("../config/database.php");
+	$DB_DBH = new PDO($DB_DSN_DOP, $DB_USER, $DB_PASSWORD, $DB_OPTION);
+	$sql = $DB_DBH->prepare("SELECT `passwd`, `verif` FROM `Users` WHERE `login` = ?");
+	$sql->execute([$login]);
+	$user = $sql->fetch();
+	if ($user) {
+		if ($user["passwd"] === hash("whirlpool" , $passwd) && $user['verif'] === 'yes') {
+			return TRUE;
 		}
 	}
 	return FALSE;

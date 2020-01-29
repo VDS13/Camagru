@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("config/setup.php");
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -15,12 +16,12 @@ session_start();
         <div class="cama">Camargu</div>
         <div class="login">
             <?php
-                include("login.php");
+                include("move/displogin.php");
             ?>
         </div>
     </div>
     <div class="photo">
-
+    
     </div>
 </body>
 </html>
