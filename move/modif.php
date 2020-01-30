@@ -11,7 +11,7 @@ $login = $_POST["login"];
 $sql->execute([$login]);
 $old = $sql->fetch();
 if ($old) {
-	if ($old['passwd'] === hash("whirlpool",$_POST['oldpw'])) {
+	if ($old['passwd'] === hash("whirlpool",$_POST['oldpw'].$secret)) {
 		$sql = $DB_DBH->query("SELECT `id_user`, `login`, `pass` FROM `Pno` ORDER BY `login`");
 		$sql->setFetchMode(PDO::FETCH_ASSOC);
 		if ($sql)
@@ -21,15 +21,18 @@ if ($old) {
 				if ($row['login'] === $_POST['login']) {
 					$flag = 1;
 					$id = $row['id_user'];
-					if($row['pass'] === hash("whirlpool",$_POST['newpw'])) {
+					if($row['pass'] === hash("whirlpool",$_POST['newpw'].$secret)) {
 						$flag = 2;
 						break;
 					}
 				}
 			}
+			if (strlen($_POST['newpw']) < 8 || preg_match("/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/", $_POST['newpw']) == 0) {
+				$flag = 3;
+			}
 			if ($flag === 1) {
 				$login = $_POST["login"];
-				$passwd = hash("whirlpool",$_POST["newpw"]);
+				$passwd = hash("whirlpool",$_POST["newpw"].$secret);
 				$sql = $DB_DBH->prepare("INSERT INTO `Pno` (`id_user`,`login`, `pass`) VALUES (?, ?, ?)");
 				$sql->execute(array($id, $login, $passwd));
 				$sql = $DB_DBH->prepare("UPDATE `Users` SET `passwd` = ? WHERE `id_user` = ?");
@@ -38,6 +41,10 @@ if ($old) {
 			}
 			else if ($flag === 2) {
 				echo "<script>alert(\"Такой пароль уже был использован ранее\");
+				location.href='../html/modif.html';</script>";
+			}
+			else if ($flag === 3) {
+				echo "<script>alert(\"Некорректный пароль. \\nПароль должен быть длиннее 8 символов и должен содержать один спецсимвол.\");
 				location.href='../html/modif.html';</script>";
 			}
 		}

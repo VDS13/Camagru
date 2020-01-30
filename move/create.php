@@ -10,17 +10,21 @@ else {
 	$sql->setFetchMode(PDO::FETCH_ASSOC);
 	$flag = 0;
 	$login = $_POST["login"];
-	$passwd = hash("whirlpool",$_POST["passwd"]);
+	$passwd = hash("whirlpool",$_POST["passwd"].$secret);
 	$token = md5($_POST["email"]);
 	$verif = 'no';
 	$email = base64_encode($_POST["email"]);
+	if (strlen($_POST['passwd']) < 8 || preg_match("/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/", $_POST['passwd']) == 0) {
+		echo "<script>alert(\"Некорректный пароль. \\nПароль должен быть длиннее 7 символов и должен содержать cтрочные и прописные латинские буквы, цифры, спецсимволы..\");
+		location.href='../html/create.html';</script>";
+		$flag = 1;
+	}
 	if (strlen($login) > 8 || preg_match("/^\w*$/", $login) == 0) {
 		echo "<script>alert(\"Некорректный логин. \\nЛогин должен быть не длиннее 8 символов и не должен содержать спецсимволы.\");
 		location.href='../html/create.html';</script>";
 		$flag = 1;
 	}
-	if ($sql)
-	{
+	if ($sql) {
 		while ($row = $sql->fetch())
 		{
 			if ($row['login'] === $_POST['login']) {
@@ -50,9 +54,8 @@ else {
 		$sql->execute(array($id, $login, $passwd));
 		ini_set("SMTP", "127.0.0.1");
 		ini_set("smtp_port", "25");
-		$subject = "Подтверждение почты на сайте ".$_SERVER['HTTP_HOST'];
-		$headers = "FROM: camagru\r\nReply-to: Vyazin\r\nContent-type: text/html; charset=utf-8\r\n";
-		$message = 'Здравствуйте!  неким пользователем была произведена регистрация на сайте CAMAGRU, используя Ваш email. Если это были Вы,
+		$headers = "FROM: Camagru\r\nReply-to: Vyazin\r\nContent-type: text/html; charset=utf-8\r\n";
+		$message = 'Здравствуйте!  Неким пользователем была произведена регистрация на сайте CAMAGRU, используя Ваш email. Если это были Вы,
 		то, пожалуйста, подтвердите адрес вашей электронной почты, перейдя по этой ссылке: 
 		<a href="http://127.0.0.1:8080/move/activation.php?token='.$token.'&email='.$email.'">ТУТ</a> <br/> <br/> В противном случае, если это были не Вы, 
 		то, просто игнорируйте это письмо.';
