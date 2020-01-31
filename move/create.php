@@ -1,5 +1,6 @@
 <?php
 include("../config/database.php");
+include("modif3.php");
 if (!$_POST["login"] || !$_POST["passwd"] || !$_POST["email"] || $_POST["submit"] != "OK") {
 	echo "ERROR\n";
 	exit;

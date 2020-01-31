@@ -1,5 +1,6 @@
 <?php
 include("../config/database.php");
+include("modif3.php");
 if (!$_POST["newpw"] || $_POST["submit"] != "OK") {
 	echo "ERROR\n";
 	exit;

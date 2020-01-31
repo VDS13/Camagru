@@ -1,5 +1,6 @@
 <?php
 include("../config/database.php");
+include("modif3.php");
 if (!$_POST["login"] || !$_POST["oldpw"] || $_POST["submit"] != "OK" ||
 	!$_POST["newpw"] || $_POST["oldpw"] == $_POST["newpw"]) {
 	echo "<script>alert(\"Старый и новый пароль совпадают\");
