@@ -20,8 +20,6 @@ include("config/setup.php");
             ?>
         </div>
     </div>
-    <div class="photo">
     
-    </div>
 </body>
 </html>

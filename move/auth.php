@@ -2,6 +2,7 @@
 function auth($login, $passwd)
 {
 	include("../config/database.php");
+	include("modif3.php");
 	session_start();
 	if (!$_SESSION['try']) {
 		$_SESSION['try'] = 0;

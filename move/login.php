@@ -2,7 +2,7 @@
 include("auth.php");
 include("../config/database.php");
 session_start();
-$login = htmlspecialchars($_POST["login"]);
+$login = $_POST["login"];
 $passwd = $_POST["passwd"];
 if ($_SESSION['try'] == 3) {
 	$DB_DBH = new PDO($DB_DSN_DOP, $DB_USER, $DB_PASSWORD, $DB_OPTION);
@@ -41,6 +41,7 @@ if ($_SESSION['try'] == 3) {
 else {
 	$_SESSION["loggued_on_user"] = auth($login, $passwd) ? $login : "";
 	if ($_SESSION["loggued_on_user"] == "") {
+		$_SESSION['try']++;
 		echo "<script>alert(\"Пользователь не существует, неправильно ввёден пароль или не подтверждён аккаунт\\nПроверьте почту на наличие письма подтверждения аккаунта\");
 		location.href='../html/login.html';</script>";
 	}

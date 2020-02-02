@@ -5,10 +5,11 @@ if ($_SESSION["loggued_on_user"] == "") {
 }
 else {
 	echo "<p>" . htmlspecialchars($_SESSION["loggued_on_user"]) . "</p>";
+	echo "<a href=\"../move/camera.php\"><img class=\"login\" src=\"https://s1.iconbird.com/ico/2013/9/452/w512h4321380476728camera.png\" title=\"Сделать фото\" width=\"60px\" height=\"50px\"></a>";
 }
 ?>
 <div class="log">
-<form class="button1">
-	<button type="submit" name="Logout" formaction="move/logout.php">Logout</button>
-</form>
+	<form class="button1">
+		<button type="submit" name="Logout" formaction="move/logout.php">Logout</button>
+	</form>
 </div>
