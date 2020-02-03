@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Восстановление пароля</title>
+        <title>Смена логина</title>
         <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/42_Logo.svg/1200px-42_Logo.svg.png" type="image/png" width=50px>
         <link rel="stylesheet" href="../css/login.css">
     </head>
 <body>
-<form id="login" action="../move/modif2.php" method="post">
-    <h1>Восстановление пароля</h1>
-    <fieldset id="inputs"> 
-        <input id="password" type="password" placeholder="Новый пароль" name="newpw" required>
+<form id="login" action="../move/modiflogin.php" method="post">
+    <h1>Смена логина</h1>
+    <fieldset id="inputs">
+        <input id="username" type="text" placeholder="Логин" name="login" autofocus required>   
     </fieldset>
     <fieldset id="actions">
         <input type="submit" id="submit" name="submit" value="OK">
