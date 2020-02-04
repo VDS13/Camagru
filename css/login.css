@@ -200,6 +200,12 @@ fieldset
     line-height: 35px;
     margin-left: 10px;
 }
+#action a
+{
+    color: #3151A2;    
+    line-height: 35px;
+    font-size: 25px;
+}
 
 /*--------------------*/
 

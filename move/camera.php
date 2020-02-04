@@ -14,16 +14,14 @@ session_start();
         <div class="n42">42</div>
         <div class="cama">Camargu</div>
         <div class="login">
-            <?php
-                include("dispall.php");
-            ?>
+            <?php include("dispall.php"); ?>
         </div>
     </div>
     <div class="cam">
         <div>
-            <canvas id='canvas' width='500' height='500'></canvas>   
+            <canvas id='canvas' width='600' height='450'></canvas>   
         </div>
-        <div class="web">
+            <div class="web">
             <video autoplay></video>
             <script>
                 navigator.getUserMedia = navigator.getUserMedia ||  navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
@@ -44,14 +42,28 @@ session_start();
                     console.log("getUserMedia not supported");
                 }
             </script>
-                <form><input type='button' id='snapshot' value="snapshot"></form>     
-                <script> 
-                  document.getElementById('snapshot').onclick = function() { 
+            <form><input type='button' id='snapshot' value="snapshot"></form>     
+            <script type="text/javascript"> 
+                function getImage(canvas){
+                    var imageData = canvas.toDataURL();
+                    var image = new Image();
+                    image.src = imageData;
+                    return image;
+                }
+                function saveImage(image) {
+                    var link = document.createElement("a");
+                    link.setAttribute("href", image.src);
+                    <?php include('snapshot.php'); ?>
+                    link.click();
+                }
+                document.getElementById('snapshot').onclick = function() { 
                     var video = document.querySelector('video'); 
                     var canvas = document.getElementById('canvas'); 
                     var ctx = canvas.getContext('2d'); 
                     ctx.drawImage(video,0,0,600,450); 
-                  } 
+                    var image = getImage(document.getElementById("canvas"));
+                    saveImage(image);
+                }
             </script>
         </div>
     </div>
