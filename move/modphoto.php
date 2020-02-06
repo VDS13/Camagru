@@ -2,8 +2,23 @@
     session_start();
     if (!file_exists('../collection/'.$_SESSION['loggued_on_user']))
         mkdir('../collection/'.$_SESSION['loggued_on_user']);
-    $save_path = '../collection/'.$_SESSION['loggued_on_user'].'/'.$_SESSION['photo'].'.jpg';
-	$watermark_path='https://image.flaticon.com/icons/png/512/57/57458.png';
+	$save_path = '../collection/'.$_SESSION['loggued_on_user'].'/'.$_SESSION['photo'].'.jpg';
+	if ($_POST['filter'] == '1') {
+		$watermark_path='../filter/1.png';
+	}
+	else if ($_POST['filter'] == '2') {
+		$watermark_path='../filter/2.png';
+	}
+	else if ($_POST['filter'] == '3') {
+		$watermark_path='../filter/3.png';
+	}
+	else if ($_POST['filter'] == '4') {
+		$watermark_path='../filter/4.png';
+	}
+	else if ($_POST['filter'] == '5') {
+		$watermark_path='../filter/5.png';
+	}
+	$watermark_path='../filter/4.png';
 	sleep(1);
     $img_path='/Users/dnichol/Downloads/'.$_SESSION['photo'].'.png';
     $size      = getimagesize($img_path);

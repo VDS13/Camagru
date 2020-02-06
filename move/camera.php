@@ -19,7 +19,7 @@ session_start();
     </div>
     <div class="cam">
         <div>
-            
+            <canvas id='canvas' width='1200' height='900'></canvas>
         </div>
             <div class="web">
                 <video autoplay></video>
@@ -28,17 +28,30 @@ session_start();
                     <input type='button' id='snapshot' name="snapshot" value="snapshot">
                 </form>     
                 <script src="../js/camera.js"></script>
-                <canvas id='canvas' width='1200' height='900'></canvas>
         </div>
         <div class="mask">
-            <label>
-                <input type="radio" name="filter" value="1" checked>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/42_Logo.svg/1200px-42_Logo.svg.png" height="40%">
-            </label>
-            <label>
-                <input type="radio" name="filter" value="2" >
-                <img src="https://image.flaticon.com/icons/png/512/57/57458.png" height="40%">
-            </label>
+            <form action="modphoto.php" method="post">
+                <label>
+                    <input type="radio" name="filter" value="1" checked>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/42_Logo.svg/1200px-42_Logo.svg.png" width="50%">
+                </label>
+                <label>
+                    <input type="radio" name="filter" value="2" >
+                    <img src="https://image.flaticon.com/icons/png/512/57/57458.png" width="50%">
+                </label>
+                <label>
+                    <input type="radio" name="filter" value="3" >
+                    <img src="https://pngicon.ru/file/uploads/vinni-pukh-v-png-256x256.png" width="50%">
+                </label>
+                <label>
+                    <input type="radio" name="filter" value="4" >
+                    <img src="https://pngicon.ru/file/uploads/ljagushonok-pepe-256x243.png" width="50%">
+                </label>
+                <label>
+                    <input type="radio" name="filter" value="5" >
+                    <img src="https://lh3.googleusercontent.com/proxy/bjhDkZPRDDhdEZDMYkvbvZnf4trxb2z6619FidhRAXrLGWvp-EcVuYukp_sIFNnNpcdEdyGBoj5LEdx6bE9dgnm0BqpLiy2fiFtmyNHKugkuHc0qi-IzoqaQFwmouEK8pmW9-zSg4n8zEGAHY0qfgRloN0uT" width="60%">
+                </label>
+            </form>
         </div>
     </div>
 </body>

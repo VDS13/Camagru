@@ -23,6 +23,7 @@
     float: right;
 }
 .mask{
+    overflow: scroll;
     background-color: navajowhite;
     text-align: center;
 }
