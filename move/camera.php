@@ -19,52 +19,26 @@ session_start();
     </div>
     <div class="cam">
         <div>
-            <canvas id='canvas' width='600' height='450'></canvas>   
+            
         </div>
             <div class="web">
-            <video autoplay></video>
-            <script>
-                navigator.getUserMedia = navigator.getUserMedia ||  navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-                if (navigator.getUserMedia) {
-                    navigator.getUserMedia({ audio: true, video: true },
-                    function(stream) {
-                        var video = document.querySelector('video');
-                        video.srcObject = stream;
-                        video.onloadedmetadata = function(e) {
-                        video.play();
-                        };
-                    },
-                    function(err) {
-                        console.log("The following error occurred: " + err.name);
-                    }
-                    );
-                } else {
-                    console.log("getUserMedia not supported");
-                }
-            </script>
-            <form><input type='button' id='snapshot' value="snapshot"></form>     
-            <script type="text/javascript"> 
-                function getImage(canvas){
-                    var imageData = canvas.toDataURL();
-                    var image = new Image();
-                    image.src = imageData;
-                    return image;
-                }
-                function saveImage(image) {
-                    var link = document.createElement("a");
-                    link.setAttribute("href", image.src);
-                    <?php include('snapshot.php'); ?>
-                    link.click();
-                }
-                document.getElementById('snapshot').onclick = function() { 
-                    var video = document.querySelector('video'); 
-                    var canvas = document.getElementById('canvas'); 
-                    var ctx = canvas.getContext('2d'); 
-                    ctx.drawImage(video,0,0,600,450); 
-                    var image = getImage(document.getElementById("canvas"));
-                    saveImage(image);
-                }
-            </script>
+                <video autoplay></video>
+                <script src="../js/playcam.js"></script>
+                <form >
+                    <input type='button' id='snapshot' name="snapshot" value="snapshot">
+                </form>     
+                <script src="../js/camera.js"></script>
+                <canvas id='canvas' width='1200' height='900'></canvas>
+        </div>
+        <div class="mask">
+            <label>
+                <input type="radio" name="filter" value="1" checked>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/42_Logo.svg/1200px-42_Logo.svg.png" height="40%">
+            </label>
+            <label>
+                <input type="radio" name="filter" value="2" >
+                <img src="https://image.flaticon.com/icons/png/512/57/57458.png" height="40%">
+            </label>
         </div>
     </div>
 </body>

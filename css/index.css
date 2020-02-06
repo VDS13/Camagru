@@ -20,8 +20,25 @@
 .web {
     background-color: pink;
     text-align: center;
+    float: right;
+}
+.mask{
+    background-color: navajowhite;
+    text-align: center;
 }
 video {
     width: 90%;
     height: 90%;
+}
+[type=radio] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+[type=radio] + img {
+    cursor: pointer;
+}
+[type=radio]:checked + img {
+    outline: 2px solid #f00;
 }

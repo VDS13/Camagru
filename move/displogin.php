@@ -12,6 +12,5 @@ else {
 <div class="log">
 	<form class="button1">
 		<button type="submit" name="Logout" formaction="move/logout.php">Logout</button>
-		<button type="submit" name="check" formaction="move/modphoto.php">Check</button>
 	</form>
 </div>
