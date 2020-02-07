@@ -34,6 +34,12 @@
 		$height_wm = $size_wm[1];
 		$width_wm  = $size_wm[0];
 	}
+	else if ($_GET['filter'] == '6') {
+		$watermark_path='../filter/6.png';
+		$size_wm   = getimagesize( $watermark_path );
+		$height_wm = $size_wm[1];
+		$width_wm  = $size_wm[0];
+	}
 	sleep(1);
 	$img_path='/Users/dnichol/Downloads/'.$_SESSION['photo'].'.png';
     $size      = getimagesize($img_path);
@@ -45,7 +51,7 @@
 	}
 	else if ($_GET['filter'] == '2') {
 		$x = $width - $width_wm;
-		$y = $height - $height_wm;
+		$y = 0;
 	}
 	else if ($_GET['filter'] == '3') {
 		$x = $width - $width_wm;
@@ -58,7 +64,11 @@
 	}
 	else if ($_GET['filter'] == '5') {
 		$x = ($width - $width_wm) / 2;
-		$y = ($height - $height_wm) / 2;
+		$y = ($height - $height_wm) / 6;
+	}
+	else if ($_GET['filter'] == '6') {
+		$x = ($width - $width_wm) / 2;
+		$y = ($height - $height_wm) / 6;
 	}
 	$img_ext = preg_match('~.png$~i', $img_path) ? 'png' : 'jpg';
 	$wm_ext  = preg_match('~.png$~i', $img_path) ? 'png' : 'jpg';

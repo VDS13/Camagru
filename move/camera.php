@@ -32,7 +32,7 @@ session_start();
         <div class="mask">
             <form action="modphoto.php" method="get">
                 <label>
-                    <input type="radio" name="filter" value="1">
+                    <input type="radio" name="filter" value="1" checked>
                     <img src="../filter/1.png" width="50%">
                 </label>
                 <label>
@@ -50,6 +50,10 @@ session_start();
                 <label>
                     <input type="radio" name="filter" value="5">
                     <img src="../filter/5.png" width="60%">
+                </label>
+                <label>
+                    <input type="radio" name="filter" value="6">
+                    <img src="../filter/6.png" width="60%">
                 </label>
             </form>
         </div>
