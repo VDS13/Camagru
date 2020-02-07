@@ -33,7 +33,12 @@ document.getElementById('snapshot').onclick = function() {
             var image = getImage(document.getElementById("canvas"));
             saveImage(image, xhr.response);
             var xhr1 = new XMLHttpRequest();
-            xhr1.open("GET", "modphoto.php");
+            var input = document.getElementsByName('filter');
+            for (var i=0; i<input.length; i++) {
+                if (input[i].checked) {
+                    xhr1.open("GET", "modphoto.php?filter=" + input[i].value, true);
+                }
+            }
             xhr1.send();
         }
     };
