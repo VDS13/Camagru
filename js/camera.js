@@ -40,6 +40,20 @@ document.getElementById('snapshot').onclick = function() {
                 }
             }
             xhr1.send();
+            var xhr2 = new XMLHttpRequest();
+            xhr2.open("GET", "checklogin.php");
+            xhr2.send();
+            xhr2.onload = function() {
+                if (xhr2.status != 200) { 
+                    alert(`Ошибка ${xhr2.status}: ${xhr2.statusText}`);
+                } else {
+                    var jpega = document.getElementById("jpega");
+                    var pred = document.getElementById("pred");
+                    jpega.src = "../collection/" + xhr2.response + "/" + xhr.response + ".jpg";
+                    pred.style.display = "block";
+                    document.getElementById('snapshot').disabled = true;
+                }
+            };
         }
     };
 }

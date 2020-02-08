@@ -31,6 +31,17 @@ video {
     width: 90%;
     height: 90%;
 }
+#can {
+    display: none;
+}
+#jpega {
+    text-align: center;
+    width: 95%;
+}
+#pred {
+    display: none;
+    text-align: center;
+}
 [type=radio] { 
     position: absolute;
     opacity: 0;

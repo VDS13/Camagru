@@ -19,15 +19,22 @@ session_start();
     </div>
     <div class="cam">
         <div>
-            <canvas id='canvas' width='1200' height='900'></canvas>
+            <div id="pred">
+                <img id="jpega" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/42_Logo.svg/1200px-42_Logo.svg.png">
+                <form>
+                    <input type="button" id="save" name="save" value="Save">
+                    <input type="button" id="delete" name="delete" value="Delete">
+                </form>
+                <script src="../js/button.js"></script>
+            </div>
         </div>
-            <div class="web">
-                <video autoplay></video>
-                <script src="../js/playcam.js"></script>
-                <form >
-                    <input type='button' id='snapshot' name="snapshot" value="snapshot">
-                </form>     
-                <script src="../js/camera.js"></script>
+        <div class="web">
+            <video autoplay></video>
+            <script src="../js/playcam.js"></script>
+            <form >
+                <input type='button' id='snapshot' name="snapshot" value="snapshot">
+            </form>     
+            <script src="../js/camera.js"></script>
         </div>
         <div class="mask">
             <form action="modphoto.php" method="get">
@@ -56,6 +63,9 @@ session_start();
                     <img src="../filter/6.png" width="60%">
                 </label>
             </form>
+        </div>
+        <div id="can">
+                <canvas id='canvas' width='1200' height='900'></canvas>
         </div>
     </div>
 </body>
