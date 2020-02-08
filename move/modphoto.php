@@ -1,5 +1,7 @@
 <?php
-    session_start();
+	session_start();
+	if (!file_exists('../collection'))
+		mkdir('../collection');
     if (!file_exists('../collection/'.$_SESSION['loggued_on_user']))
         mkdir('../collection/'.$_SESSION['loggued_on_user']);
 	$save_path = '../collection/'.$_SESSION['loggued_on_user'].'/'.$_SESSION['photo'].'.jpg';

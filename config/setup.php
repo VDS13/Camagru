@@ -21,7 +21,6 @@ try {
     $sql = "CREATE TABLE IF NOT EXISTS`Img` (
         `id_img` INT NOT NULL AUTO_INCREMENT,
         `id_user` INT NOT NULL,
-        `login` VARCHAR(8) NOT NULL,
         `path_img` VARCHAR(128) NOT NULL,
         `creation_date` DATETIME NOT NULL,
         `like` INT NOT NULL,
@@ -30,7 +29,7 @@ try {
     $sql = "CREATE TABLE IF NOT EXISTS`Comment` (
         `id_comment` INT NOT NULL AUTO_INCREMENT,
         `id_img` INT NOT NULL,
-        `login` VARCHAR(8) NOT NULL,
+        `id_user` VARCHAR(8) NOT NULL,
         `comment` VARCHAR(128) NOT NULL,
         `creation_date` DATETIME NOT NULL,
         PRIMARY KEY(id_comment))";

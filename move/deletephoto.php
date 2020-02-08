@@ -1,4 +1,4 @@
 <?php
 session_start();
-unlink("../collection/".$_SESSION['photo'].".jpg");
+unlink("/Users/dnichol/myprojects/camagru/collection/".$_SESSION['loggued_on_user']."/".$_SESSION['photo'].".jpg");
 ?>
