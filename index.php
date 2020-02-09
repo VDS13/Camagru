@@ -20,6 +20,11 @@ include("config/setup.php");
             ?>
         </div>
     </div>
-    
+    <div class="gallery">
+        <?php
+            include("move/gallery.php");
+        ?>
+    </div>
+    <div class="footer"></div>
 </body>
 </html>

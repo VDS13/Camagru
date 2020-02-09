@@ -5,18 +5,6 @@ function sleep(milliseconds) {
         currentDate = Date.now();
     } while (currentDate - date < milliseconds);
 } 
-function getImage(canvas) {
-    var imageData = canvas.toDataURL();
-    var image = new Image();
-    image.src = imageData;
-    return image;
-}
-function saveImage(image, num) {
-    var link = document.createElement("a");
-    link.setAttribute("href", image.src);
-    link.setAttribute("download", num);
-    link.click();
-}
 document.getElementById('snapshot').onclick = function() { 
     document.getElementById('canvas').hidden = true;
     var xhr = new XMLHttpRequest();
@@ -30,8 +18,21 @@ document.getElementById('snapshot').onclick = function() {
             var canvas = document.getElementById('canvas'); 
             var ctx = canvas.getContext('2d'); 
             ctx.drawImage(video,0,0,1200,900); 
-            var image = getImage(document.getElementById("canvas"));
-            saveImage(image, xhr.response);
+            var kek = canvas.toDataURL("image/png");
+            var omg = encodeURIComponent(kek);
+            var xhr0 = new XMLHttpRequest();
+            var body = "img=" + omg;
+            xhr0.open('POST', "movefile.php");
+            xhr0.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr0.setRequestHeader("Content-Length", body.length);
+            xhr0.setRequestHeader("Connection", "close");
+            xhr0.send(body);
+            sleep(500);
+            xhr0.onreadystatechange = function () {
+                if (xhr0.status != 200) { 
+                    alert(`Ошибка ${xhr0.status}: ${xhr0.statusText}`);
+                }
+            }
             var xhr1 = new XMLHttpRequest();
             var input = document.getElementsByName('filter');
             for (var i=0; i<input.length; i++) {
@@ -41,7 +42,7 @@ document.getElementById('snapshot').onclick = function() {
             }
             xhr1.send();
             var xhr2 = new XMLHttpRequest();
-            xhr2.open("GET", "checklogin.php");
+            xhr2.open("GET", "checklogin.php?check=ok");
             xhr2.send();
             xhr2.onload = function() {
                 if (xhr2.status != 200) { 

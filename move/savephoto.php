@@ -8,7 +8,7 @@ $sql->execute(array($login));
 $id = $sql->fetchColumn();
 $sql = $DB_DBH->prepare("INSERT INTO `Img` (`id_user`,`path_img`, `creation_date`, `like`) VALUES (?, ?, ?, ?)");
 $date = date("Y-m-d H:i:s");
-$path = "/Users/dnichol/myprojects/camagru/collection/".$_SESSION['loggued_on_user']."/".$_SESSION['photo'].".jpg";
+$path = "collection/".$_SESSION['loggued_on_user']."/".$_SESSION['photo'].".jpg";
 $like = 0;
 $sql->execute(array($id, $path, $date, $like));
 ?>

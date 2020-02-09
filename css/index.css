@@ -1,7 +1,16 @@
 .header {
     display: grid;
-    grid-template-columns: 20vw 60vw 20vw;
-    grid-template-rows: 10vh;
+    grid-template-columns: 19.5vw 60vw 20vw;
+    grid-template-rows: 10vh; 
+}
+.gallery {
+    overflow: scroll;
+    text-align: center;
+}
+.footer {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 10vh; 
 }
 .n42 {
     background-color: aquamarine;
@@ -11,6 +20,18 @@
 }
 .login {
     background-color: pink;
+}
+#data {
+    width: 10%;
+}
+#bc {
+    width: 10%;
+}
+#photo {
+    text-align: center;
+    width: 20%;
+    float: left;
+    outline: 2px solid #f00;
 }
 .cam {
     display: grid;
