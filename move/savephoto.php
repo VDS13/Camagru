@@ -1,5 +1,6 @@
 <?php
 include("../config/database.php");
+date_default_timezone_set("Europe/Moscow");
 session_start();
 $login = $_SESSION['loggued_on_user'];
 $DB_DBH = new PDO($DB_DSN_DOP, $DB_USER, $DB_PASSWORD, $DB_OPTION);

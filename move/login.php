@@ -8,7 +8,8 @@ if ($_SESSION['try'] == 3) {
 	$DB_DBH = new PDO($DB_DSN_DOP, $DB_USER, $DB_PASSWORD, $DB_OPTION);
 	$sql = $DB_DBH->query("SELECT `login`, `email` FROM `Users` ORDER BY `login`");
     $sql->setFetchMode(PDO::FETCH_ASSOC);
-    $flag = 0;
+	$flag = 0;
+	$_SESSION['try'] = 0;
     if ($sql) {
         while ($row = $sql->fetch())
 		{

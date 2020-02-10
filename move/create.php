@@ -14,6 +14,7 @@ else {
 	$passwd = hash("whirlpool",$_POST["passwd"].$secret);
 	$token = md5($_POST["email"]);
 	$verif = 'no';
+	$notific = 'no';
 	$email = base64_encode($_POST["email"]);
 	if (strlen($_POST['passwd']) < 8 || preg_match("/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/", $_POST['passwd']) == 0) {
 		echo "<script>alert(\"Некорректный пароль. \\nПароль должен быть длиннее 7 символов и должен содержать cтрочные и прописные латинские буквы, цифры, спецсимволы..\");
@@ -46,8 +47,8 @@ else {
 		$flag = 1;
 	}
 	if ($flag === 0) {
-		$sql = $DB_DBH->prepare("INSERT INTO `Users` (`login`, `passwd`, `token`, `verif`, `email`) VALUES (?, ?, ?, ?, ?)");
-		$sql->execute(array($login, $passwd, $token, $verif, $email));
+		$sql = $DB_DBH->prepare("INSERT INTO `Users` (`login`, `passwd`, `token`, `verif`, `email`, `notific`) VALUES (?, ?, ?, ?, ?, ?)");
+		$sql->execute(array($login, $passwd, $token, $verif, $email, $notific));
 		$sql = $DB_DBH->prepare("SELECT `id_user` FROM `Users` WHERE `login` = ?");
 		$sql->execute(array($login));
 		$id = $sql->fetchColumn();

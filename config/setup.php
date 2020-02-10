@@ -16,6 +16,7 @@ try {
         `token` VARCHAR(256) NOT NULL,
         `verif` ENUM('yes', 'no') NOT NULL,
         `email` VARCHAR(256) NOT NULL,
+        `notific` ENUM('yes', 'no') NOT NULL,
         PRIMARY KEY(id_user))";
     $DB_DBH->exec($sql);
     $sql = "CREATE TABLE IF NOT EXISTS`Img` (
@@ -38,6 +39,10 @@ try {
         `id_user` INT NOT NULL,
         `login` VARCHAR(8) NOT NULL,
         `pass` VARCHAR(256) NOT NULL)";
+    $DB_DBH->exec($sql);
+    $sql = "CREATE TABLE IF NOT EXISTS`like` (
+        `id_img` INT NOT NULL,
+        `id_user` INT NOT NULL)";
     $DB_DBH->exec($sql);
 } catch (PDOException $e) {
     die('Error creating tables: ' . $e->getMessage);

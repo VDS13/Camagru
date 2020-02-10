@@ -68,5 +68,6 @@ session_start();
                 <canvas id='canvas' width='1200' height='900'></canvas>
         </div>
     </div>
+    <div class="footer"></div>
 </body>
 </html>

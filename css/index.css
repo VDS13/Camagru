@@ -6,11 +6,23 @@
 .gallery {
     overflow: scroll;
     text-align: center;
+    height: 79vh;
 }
 .footer {
     display: grid;
-    grid-template-columns: 100%;
+    grid-template-columns: 99vw;
     grid-template-rows: 10vh; 
+}
+.cam {
+    display: grid;
+    grid-template-columns:25vw 50vw 24vw;
+    grid-template-rows: 79vh;
+}
+.checkphoto {
+    display: grid;
+    grid-template-columns:25vw 50vw 24vw;
+    grid-template-rows: 60vh 19vh;
+    text-align: center;
 }
 .n42 {
     background-color: aquamarine;
@@ -33,10 +45,9 @@
     float: left;
     outline: 2px solid #f00;
 }
-.cam {
-    display: grid;
-    grid-template-columns:25vw 50vw 25vw;
-    grid-template-rows: 75vh;
+#photoc {
+    width: 75%;
+    text-align: center;
 }
 .web {
     background-color: pink;
@@ -74,4 +85,36 @@ video {
 }
 [type=radio]:checked + img {
     outline: 2px solid #f00;
+}
+#comments {
+    background-color: white;
+    width: 33vw;
+    margin: 4px 4px 4px 4px;
+}
+#but {
+    background-color: green;
+    width: 3vw;
+    font-size: 12px;
+    color: red;
+    margin: 4px 4px 4px 4px;
+}
+#chati {
+    background-color: rgb(27, 163, 27);
+    color: rgb(190, 21, 21);
+    width: 37vw;
+    height: 10vh;
+    text-align: left;
+    overflow: scroll;
+    margin: 1px 1px 1px 13%;
+}
+#texti {
+    background-color: rgb(27, 163, 27);
+    color: rgb(190, 21, 21);
+    width: 37vw;
+    height: 2vh;
+    margin: 1px 1px 1px 13%;
+}
+::-webkit-scrollbar { 
+    width: 0px;
+    background: transparent;
 }
