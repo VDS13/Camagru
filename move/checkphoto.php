@@ -34,11 +34,12 @@ session_start();
             <div>
                 <div id="chati"></div>
                 <div id="texti">
-                <form method="POST">
-                    <input id="comments" name="msg" type="text" />
-                    <input id="but" name="send" type="button"  value="send"/>
-                </form>
-                <script src="../js/comments.js"></script>
+                    <a onclick="like()"><img id="like" src="../imgforsite/nelike.png"></a>
+                    <form method="POST">
+                        <input id="comments" name="msg" type="text" />
+                        <input id="but" name="send" type="button"  value="send"/>
+                    </form>
+                    <script src="../js/comments.js"></script>
                 </div>
             </div>
         </div>

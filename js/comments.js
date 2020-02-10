@@ -42,3 +42,21 @@ document.getElementById('but').onclick = function() {
         }
     };
 }
+var i = 0;
+var imgs = new Array("../imgforsite/nelike.png", "../imgforsite/like.png", "../imgforsite/nelike.png");
+function like() {
+    i++;
+    var image = document.getElementById("like");
+    if(image.src == "../imgforsite/nelike.png") {
+        var xhr2 = new XMLHttpRequest();
+        xhr2.open("GET", "like.php?like=0");
+        xhr2.send();
+    } else {
+        var xhr3 = new XMLHttpRequest();
+        xhr3.open("GET", "like.php?like=1");
+        xhr3.send();
+    }
+    image.src=imgs[i];
+    if(i == 2)
+        i = 0;
+}
