@@ -18,7 +18,7 @@
             $sql->execute([$login]);
             $old = $sql->fetch();
             $id = $old['id_user'];
-            $sql = $DB_DBH->prepare("DELETE FROM `Comment` WHERE `id_user` = ? AND `id_img` = ?");
+            $sql = $DB_DBH->prepare("DELETE FROM `like` WHERE `id_user` = ? AND `id_img` = ?");
 		    $sql->execute(array($id, $idimg));
         }
     }
