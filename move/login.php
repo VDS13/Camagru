@@ -36,7 +36,8 @@ if ($_SESSION['try'] == 3) {
     	session_start();
     	$_SESSION['num'] = $num;
     	$_SESSION['email'] = base64_encode($email);
-		header("Location: ../html/confirm.html");
+		echo "<script>alert(\"Вы ввели трижды неправильный пароль, ваш пароль сброшен, введите код, отправленный на почту. \");
+		location.href='../html/confirm.html';</script>";
 	}
 }
 else {

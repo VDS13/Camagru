@@ -6,7 +6,11 @@ $sql->setFetchMode(PDO::FETCH_ASSOC);
 if ($sql) {
     while ($row = $sql->fetch())
 	{
-        echo "<a href=\"move/checkphoto.php?id_img=".$row['id_img']."\"><img id=\"photo\" src=\"".$row['path_img']."\"></a>";
+        if ($_SESSION["loggued_on_user"]) {
+            echo "<a href=\"move/checkphoto.php?id_img=".$row['id_img']."\"><img id=\"photo\" src=\"".$row['path_img']."\"></a>";
+        } else {
+            echo "<a><img id=\"photo\" src=\"".$row['path_img']."\"></a>";
+        }
     }
 }
 ?>

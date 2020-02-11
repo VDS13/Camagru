@@ -1,4 +1,4 @@
-function comment() {
+function comment_and_like() {
     var xhr1 = new XMLHttpRequest();
     xhr1.open("GET", "comments.php");
     xhr1.send();
@@ -11,8 +11,28 @@ function comment() {
             z.scrollTop = 9999;
         }
     };
+    var xhr2 = new XMLHttpRequest();
+    xhr2.open("GET", "checklike.php");
+    xhr2.send();
+    xhr2.onload = function() {
+        if (xhr2.status != 200) { 
+            alert(`Ошибка ${xhr2.status}: ${xhr2.statusText}`);
+        } else {
+            document.getElementById("like").src = xhr2.response;
+        }
+    };
+    var xhr3 = new XMLHttpRequest();
+    xhr3.open("GET", "collike.php");
+    xhr3.send();
+    xhr3.onload = function() {
+        if (xhr3.status != 200) { 
+            alert(`Ошибка ${xhr3.status}: ${xhr3.statusText}`);
+        } else {
+            document.getElementById("num").value = xhr3.response;
+        }
+    };
 }
-document.getElementById('but').onclick = function() {
+document.getElementById('but').onclick = function send() {
     var xhr = new XMLHttpRequest();
     var text = document.getElementById('comments').value;
     var omg = encodeURIComponent(text);
@@ -42,21 +62,20 @@ document.getElementById('but').onclick = function() {
         }
     };
 }
-var i = 0;
-var imgs = new Array("../imgforsite/nelike.png", "../imgforsite/like.png", "../imgforsite/nelike.png");
 function like() {
-    i++;
     var image = document.getElementById("like");
-    if(image.src == "../imgforsite/nelike.png") {
+    var num = document.getElementById("num");
+    if (image.src == "http://127.0.0.1:8080/imgforsite/nelike.png") {
         var xhr2 = new XMLHttpRequest();
         xhr2.open("GET", "like.php?like=0");
         xhr2.send();
-    } else {
+        image.src = "http://127.0.0.1:8080/imgforsite/like.png";
+        num.value++;
+    } else if (image.src == "http://127.0.0.1:8080/imgforsite/like.png"){
         var xhr3 = new XMLHttpRequest();
         xhr3.open("GET", "like.php?like=1");
         xhr3.send();
+        image.src = "http://127.0.0.1:8080/imgforsite/nelike.png";
+        num.value--;
     }
-    image.src=imgs[i];
-    if(i == 2)
-        i = 0;
 }

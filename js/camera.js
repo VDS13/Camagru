@@ -58,3 +58,22 @@ document.getElementById('snapshot').onclick = function() {
         }
     };
 }
+document.getElementById('profile_pic').onchange = function(){
+    var input = document.querySelector("#profile_pic");
+    var files;
+    var reader = new FileReader();
+    var cv = document.createElement("canvas");
+    var cvContext = cv.getContext("2d");
+    files = input.files;
+    reader.readAsDataURL(files[0]);
+    reader.onload = function (e) {
+        var im = new Image();
+        im.onload = function (e) {
+            cv.width = 100;
+            cv.height = 100;
+            cvContext.drawImage(im, 0, 0, 100, 100);
+        }
+        im.src = reader.result;
+    };
+}
+    

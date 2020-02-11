@@ -9,7 +9,7 @@ session_start();
     <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/42_Logo.svg/1200px-42_Logo.svg.png" type="image/png">
     <link href="../css/index.css" rel="stylesheet">
 </head>
-<body onload="comment()">
+<body onload="comment_and_like()">
     <div class="header">
         <div class="n42">42</div>
         <div class="cama">Camargu</div>
@@ -23,22 +23,33 @@ session_start();
             <?php
                 session_start();
                 include("../config/database.php");
-                $DB_DBH = new PDO($DB_DSN_DOP, $DB_USER, $DB_PASSWORD, $DB_OPTION);
-                $idimg = $_GET['id_img'];
-                $_SESSION['comment'] = $idimg;
-                $sql = $DB_DBH->prepare("SELECT `path_img` FROM `Img` WHERE `id_img` = ?");
-		        $sql->execute(array($idimg));
-                $path = $sql->fetchColumn();
-                echo "<div ><img id=\"photoc\" src=\"../".$path."\"></div>";
+                if($_SESSION["loggued_on_user"]) {
+                    $DB_DBH = new PDO($DB_DSN_DOP, $DB_USER, $DB_PASSWORD, $DB_OPTION);
+                    $idimg = $_GET['id_img'];
+                    $_SESSION['comment'] = $idimg;
+                    $sql = $DB_DBH->prepare("SELECT `path_img` FROM `Img` WHERE `id_img` = ?");
+		            $sql->execute(array($idimg));
+                    $path = $sql->fetchColumn();
+                    if ($path)
+                        echo "<div id=\"divc\"><img id=\"photoc\" src=\"../".$path."\"></div>";
+                    else 
+                        echo "<script>alert(\"Такой фотографии нет \");
+                    location.href='../index.php';</script>";
+                }
             ?>
             <div>
                 <div id="chati"></div>
                 <div id="texti">
-                    <a onclick="like()"><img id="like" src="../imgforsite/nelike.png"></a>
-                    <form method="POST">
-                        <input id="comments" name="msg" type="text" />
-                        <input id="but" name="send" type="button"  value="send"/>
-                    </form>
+                    <div id="nlike">
+                        <a onclick="like()"><img id="like" ></a>
+                        <input id="num" type="button">
+                    </div>
+                    <div>
+                        <form>
+                            <input id="comments" name="msg" type="text" autocomplete="off"/>
+                            <input id="but" name="send" type="button"  value="send"/>
+                        </form>
+                    </div>
                     <script src="../js/comments.js"></script>
                 </div>
             </div>

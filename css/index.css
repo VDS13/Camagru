@@ -46,9 +46,14 @@
     float: left;
     outline: 2px solid #f00;
 }
-#photoc {
-    width: 75%;
+#divc {
     text-align: center;
+    margin: 1px 1px 1px 1px;
+}
+#photoc {
+    width: 37vw;
+    text-align: center;
+    margin: 1px 1px 1px 1px;
 }
 .web {
     background-color: pink;
@@ -93,7 +98,7 @@ video {
 }
 #comments {
     background-color: white;
-    width: 32vw;
+    width: 29vw;
     font-size: 20px;
     height: 3vh;
     margin-top: 0.95vh;
@@ -109,22 +114,33 @@ video {
     background-color: rgb(222, 89, 255);
     color:  rgb(22, 5, 168);
     width: 37vw;
-    height: 17.7vh;
+    height: 17.4vh;
     text-align: left;
     overflow: scroll;
     margin: 1px 1px 1px 13%;
 }
 #texti {
     display: grid;
-    grid-template-columns:1.5vw 35.5vw;
-    grid-template-rows: 5vh;
+    grid-template-columns:4vw 32.5vw;
+    grid-template-rows: 5.1vh;
     background-color: rgb(222, 89, 255);
     color: rgb(22, 5, 168);
     text-align: left;
     width: 37vw;
     margin: 1px 1px 1px 13%;
+    overflow: scroll;
 }
 ::-webkit-scrollbar { 
     width: 0px;
     background: transparent;
+}
+#nlike {
+    text-align: left;
+    width: 5vw;
+}
+#num {
+    color: rgb(222, 89, 255);
+    text-align: left;
+    font-size: 2vh;
+    margin-bottom: 5vh;
 }

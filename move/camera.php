@@ -33,6 +33,7 @@ session_start();
             <script src="../js/playcam.js"></script>
             <form >
                 <input type='button' id='snapshot' name="snapshot" value="snapshot">
+                <input type="file" id="profile_pic" name="profile_pic" accept="image/jpeg,image/png">
             </form>     
             <script src="../js/camera.js"></script>
         </div>
