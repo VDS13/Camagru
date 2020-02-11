@@ -5,6 +5,7 @@ document.getElementById('save').onclick = function() {
     var pred = document.getElementById("pred");
     pred.style.display = "none";
     document.getElementById('snapshot').disabled = false;
+    document.getElementById('profile_pic').disabled = false;
 }
 document.getElementById('delete').onclick = function() {
     var xhr = new XMLHttpRequest();
@@ -13,4 +14,5 @@ document.getElementById('delete').onclick = function() {
     var pred = document.getElementById("pred");
     pred.style.display = "none";
     document.getElementById('snapshot').disabled = false;
+    document.getElementById('profile_pic').disabled = false;
 }

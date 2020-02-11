@@ -4,8 +4,25 @@ function sleep(milliseconds) {
     do {
         currentDate = Date.now();
     } while (currentDate - date < milliseconds);
-} 
-document.getElementById('snapshot').onclick = function() { 
+}
+
+document.getElementById('snapshot').onclick = function() {
+    var video = document.querySelector('video'); 
+    movephoto(video);
+}
+
+var loadFile = function(event) {
+    var reader = new FileReader();
+    reader.onload = function(){
+      var output = document.getElementById('output');
+      output.src = reader.result;
+    };
+    document.getElementById('output').hidden = true;
+    reader.readAsDataURL(event.target.files[0]);
+    movephoto(output);
+};
+
+function movephoto(param) {
     document.getElementById('canvas').hidden = true;
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "newnamephoto.php?go=snapshot");
@@ -14,10 +31,9 @@ document.getElementById('snapshot').onclick = function() {
         if (xhr.status != 200) { 
             alert(`Ошибка ${xhr.status}: ${xhr.statusText}`);
         } else {
-            var video = document.querySelector('video'); 
             var canvas = document.getElementById('canvas'); 
             var ctx = canvas.getContext('2d'); 
-            ctx.drawImage(video,0,0,1200,900); 
+            ctx.drawImage(param,0,0,1200,900); 
             var kek = canvas.toDataURL("image/png");
             var omg = encodeURIComponent(kek);
             var xhr0 = new XMLHttpRequest();
@@ -53,27 +69,10 @@ document.getElementById('snapshot').onclick = function() {
                     jpega.src = "../collection/" + xhr2.response + "/" + xhr.response + ".jpg";
                     pred.style.display = "block";
                     document.getElementById('snapshot').disabled = true;
+                    document.getElementById('profile_pic').disabled = true;
                 }
             };
         }
-    };
-}
-document.getElementById('profile_pic').onchange = function(){
-    var input = document.querySelector("#profile_pic");
-    var files;
-    var reader = new FileReader();
-    var cv = document.createElement("canvas");
-    var cvContext = cv.getContext("2d");
-    files = input.files;
-    reader.readAsDataURL(files[0]);
-    reader.onload = function (e) {
-        var im = new Image();
-        im.onload = function (e) {
-            cv.width = 100;
-            cv.height = 100;
-            cvContext.drawImage(im, 0, 0, 100, 100);
-        }
-        im.src = reader.result;
     };
 }
     
