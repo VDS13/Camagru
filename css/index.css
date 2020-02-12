@@ -11,8 +11,9 @@
 .footer {
     display: grid;
     grid-template-columns: 99vw;
-    grid-template-rows: 10vh; 
+    grid-template-rows: 3.5vh; 
     background-color: blueviolet;
+    text-align: center;
 }
 .cam {
     display: grid;
@@ -26,18 +27,24 @@
     text-align: center;
 }
 .n42 {
-    background-color: aquamarine;
+    text-align: center;
+    background-color: pink;
 }
 .cama {
     background-color: blueviolet;
 }
 .login {
     background-color: pink;
+    margin-top: 1px;
+    margin-bottom: 0.5px;
 }
 #data {
     width: 10%;
 }
 #bc {
+    width: 10%;
+}
+#notific {
     width: 10%;
 }
 #photo {
@@ -64,6 +71,7 @@
     overflow: scroll;
     background-color: navajowhite;
     text-align: center;
+    border:1px;
 }
 video {
     width: 90%;
@@ -104,15 +112,15 @@ video {
     margin-top: 0.95vh;
 }
 #but {
-    background-color: rgb(222, 89, 255);
+    background-color: blueviolet;;
     width: 3vw;
     height: 3vh;
     font-size: 15px;
-    color: rgb(22, 5, 168);
+    color: white;
 }
 #chati {
-    background-color: rgb(222, 89, 255);
-    color:  rgb(22, 5, 168);
+    background-color: blueviolet;;
+    color:  white;
     width: 37vw;
     height: 17.4vh;
     text-align: left;
@@ -123,8 +131,8 @@ video {
     display: grid;
     grid-template-columns:4vw 32.5vw;
     grid-template-rows: 5.1vh;
-    background-color: rgb(222, 89, 255);
-    color: rgb(22, 5, 168);
+    background-color: blueviolet;
+    color: white;
     text-align: left;
     width: 37vw;
     margin: 1px 1px 1px 13%;
@@ -143,4 +151,74 @@ video {
     text-align: left;
     font-size: 2vh;
     margin-bottom: 5vh;
+}
+@font-face {
+    font-family: "audioregul"; 
+    src: url(Audiowide-Regular.ttf);
+}
+            
+h1 { color: #0a0a0a; 
+    font-family: "audioregul"; 
+    font-size: 4vw; 
+    text-align: center;
+    margin: 1px 1px 1px 1px;
+}
+
+h2 { color: #000;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+    text-align: center;
+    font-family: "audioregul"; 
+    font-size: 1vw;
+    margin-top: 1px;
+    margin-bottom: 0.5px;
+}
+h3 { color: #000;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+    text-align: center;
+    font-family: "audioregul"; 
+    font-size: 1vw;
+    margin-top: 1px;
+    margin-bottom: 0.5px;
+}
+p {
+    text-align: center;
+}
+.login {
+    text-align: center;
+}
+.img42 {
+    width: 5vw;
+}
+.testdiv {
+    text-align: center;
+    width: 5vw;
+}
+.img41 {
+    width: 3vw;
+}
+.author {
+    text-align: center;
+    float: left;
+}
+.button2 {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: .5em 2em;
+    outline: none;
+    border-width: 0.1vw 0;
+    border-style: solid none;
+    border-color: rgb(128, 51, 253) #000 rgb(106, 7, 172);
+    border-radius: 0.2vw;
+    background: linear-gradient(rgb(139, 57, 247), rgb(65, 11, 192)) rgb(65, 11, 192);
+    transition: 0.2s;
+} 
+.button2:hover {
+    background: linear-gradient(rgb(115, 61, 241), rgb(97, 6, 243 ))rgb(115, 61, 241);
+}
+.button2:active {
+    background: linear-gradient(rgb(97, 6, 243 ), rgb(115, 61, 241))rgb(97, 6, 243 );
+}
+.mask1 {
+    background-color: navajowhite;
 }
