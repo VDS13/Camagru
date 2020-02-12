@@ -19,10 +19,10 @@
             $sql = $DB_DBH->prepare("SELECT `id_user` FROM `Img` WHERE `id_img` = ?");
             $sql->execute([$idimg]);
             $one = $sql->fetch();
-            $sql = $DB_DBH->prepare("SELECT `notific`, `email` FROM `Users` WHERE `id_user` = ?");
+            $sql = $DB_DBH->prepare("SELECT `login`, `notific`, `email` FROM `Users` WHERE `id_user` = ?");
             $sql->execute([$one['id_user']]);
             $old = $sql->fetch();
-            if ($old['notific'] == 'yes') {
+            if ($old['notific'] == 'yes' && $old['login'] != $login) {
                 ini_set("SMTP", "127.0.0.1");
 		        ini_set("smtp_port", "25");
 		        $headers = "FROM: Camagru\r\nReply-to: Vyazin\r\nContent-type: text/html; charset=utf-8\r\n";
