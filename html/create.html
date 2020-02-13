@@ -6,16 +6,17 @@
     <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
-<form id="login" action="../move/create.php" method="post">
-    <h1>Регистрация</h1>
-    <fieldset id="inputs">
-        <input id="username" type="text" placeholder="Логин" name="login" autofocus required>
-        <input id="username" type="text" placeholder="Email" name="email" autofocus required>   
-        <input id="password" type="password" placeholder="Пароль" name="passwd" required>
-    </fieldset>
-    <fieldset id="actions">
-        <input type="submit" id="submit" name="submit" value="OK">
-    </fieldset>
-</form>
+    <form><button class="button2" type="submit" formaction="../move/goindex.php">На главную</button></form>
+    <form id="login" action="../move/create.php" method="post">
+        <h1>Регистрация</h1>
+        <fieldset id="inputs">
+            <input id="username" type="text" placeholder="Логин" name="login" autofocus required>
+            <input id="username" type="text" placeholder="Email" name="email" autofocus required>   
+            <input id="password" type="password" placeholder="Пароль" name="passwd" required>
+        </fieldset>
+        <fieldset id="actions">
+            <input type="submit" id="submit" name="submit" value="OK">
+        </fieldset>
+    </form>
 </body>
 </html>

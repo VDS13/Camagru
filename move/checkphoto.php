@@ -5,7 +5,7 @@ session_start();
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Camargu</title>
+    <title>Camagru</title>
     <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/42_Logo.svg/1200px-42_Logo.svg.png" type="image/png">
     <link href="../css/index.css" rel="stylesheet">
 </head>
@@ -16,7 +16,7 @@ session_start();
             <img class="img42" src="https://i.otzovik.com/objects/b/1380000/1371129.png">
         </div>
         <div class="cama">
-            <h1>Camargu</h1>
+            <h1>Camagru</h1>
         </div>
         <div class="login">
             <?php include("dispall.php"); ?>
@@ -49,11 +49,9 @@ session_start();
                         <a onclick="like()"><img id="like" ></a>
                         <input id="num" type="button">
                     </div>
-                    <div>
-                        <form>
-                            <input id="comments" name="msg" type="text" autocomplete="off"/>
-                            <input class="button2" id="but" name="send" type="button"  value="send"/>
-                        </form>
+                    <div class="inputtt">
+                        <input id="comments" name="msg" type="text" autocomplete="off"/>
+                        <input id="but" name="send" type="button"  value="send"/>
                     </div>
                     <script src="../js/comments.js"></script>
                 </div>

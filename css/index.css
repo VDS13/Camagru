@@ -112,12 +112,22 @@ video {
     margin-top: 0.95vh;
 }
 #but {
-    background-color: blueviolet;;
-    width: 3vw;
-    height: 3vh;
-    font-size: 15px;
+    text-align: center;
+    display: inline-block;
     color: white;
-}
+    text-decoration: none;
+    padding: .5em 2em;
+    outline: none;
+    border-width: 0.1vw 0;
+    border-style: solid none;
+    border-color: rgb(128, 51, 253) #000 rgb(106, 7, 172);
+    border-radius: 0.2vw;
+    background: linear-gradient(rgb(139, 57, 247), rgb(65, 11, 192)) rgb(65, 11, 192);
+    transition: 0.2s;
+    margin-left: 5px;
+    width: 3vw;
+} 
+
 #chati {
     background-color: blueviolet;;
     color:  white;
@@ -221,4 +231,7 @@ p {
 }
 .mask1 {
     background-color: navajowhite;
+}
+.inputtt {
+    width: 37vw;
 }

@@ -1,7 +1,7 @@
 html, body
 {
     height: 90%;
-    background-color: green;
+    background-color: navajowhite;;
 }
 
 body
@@ -140,11 +140,11 @@ fieldset
 #submit
 {		
     background-color: #f80800;
-    background-image: -webkit-linear-gradient(top, #e92a2a, #e76851);
-    background-image: -moz-linear-gradient(top, #e92a2a, #e76851);
-    background-image: -ms-linear-gradient(top, #e92a2a, #e76851);
-    background-image: -o-linear-gradient(top, #e92a2a, #e76851);
-    background-image: linear-gradient(top, #e92a2a, #e76851);
+    background-image: -webkit-linear-gradient(top, rgb(97, 6, 243 ), rgb(115, 61, 241));
+    background-image: -moz-linear-gradient(top, rgb(97, 6, 243 ), rgb(115, 61, 241));
+    background-image: -ms-linear-gradient(top, rgb(97, 6, 243 ), rgb(115, 61, 241));
+    background-image: -o-linear-gradient(top, rgb(97, 6, 243 ), rgb(115, 61, 241));
+    background-image: linear-gradient(top, rgb(97, 6, 243 ), rgb(115, 61, 241));
     
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
@@ -172,11 +172,11 @@ fieldset
 #submit:hover,#submit:focus
 {		
     background-color: #fddb6f;
-    background-image: -webkit-linear-gradient(top, #e92a2a, #e76851);
-    background-image: -moz-linear-gradient(top, #e92a2a, #e76851);
-    background-image: -ms-linear-gradient(top, #e92a2a, #e76851);
-    background-image: -o-linear-gradient(top, #e92a2a, #e76851);
-    background-image: linear-gradient(top, #e92a2a, #e76851);
+    background-image: -webkit-linear-gradient(top, rgb(97, 6, 243 ), rgb(115, 61, 241));
+    background-image: -moz-linear-gradient(top, rgb(97, 6, 243 ), rgb(115, 61, 241));
+    background-image: -ms-linear-gradient(top, rgb(97, 6, 243 ), rgb(115, 61, 241));
+    background-image: -o-linear-gradient(top, rgb(97, 6, 243 ), rgb(115, 61, 241));
+    background-image: linear-gradient(top, rgb(97, 6, 243 ), rgb(115, 61, 241));
 }	
 
 #submit:active
@@ -256,4 +256,23 @@ fieldset
 .vladmaxi-top span.right a{
 	float: left;
 	display: block;
+}
+.button2 {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: .5em 2em;
+    outline: none;
+    border-width: 0.1vw 0;
+    border-style: solid none;
+    border-color: rgb(128, 51, 253) #000 rgb(106, 7, 172);
+    border-radius: 0.2vw;
+    background: linear-gradient(rgb(139, 57, 247), rgb(65, 11, 192)) rgb(65, 11, 192);
+    transition: 0.2s;
+} 
+.button2:hover {
+    background: linear-gradient(rgb(115, 61, 241), rgb(97, 6, 243 ))rgb(115, 61, 241);
+}
+.button2:active {
+    background: linear-gradient(rgb(97, 6, 243 ), rgb(115, 61, 241))rgb(97, 6, 243 );
 }
