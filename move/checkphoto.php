@@ -8,6 +8,7 @@ session_start();
     <title>Camagru</title>
     <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/42_Logo.svg/1200px-42_Logo.svg.png" type="image/png">
     <link href="../css/index.css" rel="stylesheet">
+    <script type="text/javascript" src="https://vk.com/js/api/share.js?93" charset="windows-1251"></script>
 </head>
 <body onload="comment_and_like()" class="mask1">
     <div class="header">
@@ -48,6 +49,15 @@ session_start();
                     <div id="nlike">
                         <a onclick="like()"><img id="like" ></a>
                         <input id="num" type="button">
+                        <script type="text/javascript">
+                            document.write(VK.Share.button({
+                                text: 'Репост',
+                                url: '<?php echo "http://127.0.0.1:8080/move/checkphoto.php?id_img=".$_GET['id_img']; ?>',
+                                title: 'Сamagru',
+                                image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/42_Logo.svg/1200px-42_Logo.svg.png',
+                                noparse: true
+                            }));
+                        </script>
                     </div>
                     <div class="inputtt">
                         <input id="comments" name="msg" type="text" autocomplete="off"/>

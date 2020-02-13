@@ -231,12 +231,7 @@ fieldset
 	width:100%;
 	font-family: calibri;
 	font-size: 13px;
-	box-shadow: 1px 0px 2px rgba(0,0,0,0.2);
-	-webkit-animation: slideOut 0.5s ease-in-out 0.3s backwards;
-}
-@-webkit-keyframes slideOut{
-	0%{top:-30px; opacity: 0;}
-	100%{top:0px; opacity: 1;}
+    box-shadow: 1px 0px 2px rgba(0,0,0,0.2);
 }
 
 .vladmaxi-top a{

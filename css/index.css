@@ -1,7 +1,7 @@
 .header {
     display: grid;
     grid-template-columns: 19.5vw 60vw 20vw;
-    grid-template-rows: 10vh; 
+    grid-template-rows: 10vh;
 }
 .gallery {
     overflow: scroll;
@@ -102,7 +102,6 @@ video {
 }
 #like {
     width: 1.5vw;
-    margin-top: 0.95vh;
 }
 #comments {
     background-color: white;
@@ -132,7 +131,7 @@ video {
     background-color: blueviolet;;
     color:  white;
     width: 37vw;
-    height: 17.4vh;
+    height: 17vh;
     text-align: left;
     overflow: scroll;
     margin: 1px 1px 1px 13%;
@@ -160,7 +159,7 @@ video {
     color: rgb(222, 89, 255);
     text-align: left;
     font-size: 2vh;
-    margin-bottom: 5vh;
+    margin-bottom: 0.4vh;
 }
 @font-face {
     font-family: "audioregul"; 
